@@ -7,7 +7,7 @@ pipeline {
         stage("deploy") {
             steps {
                 script{
-                    def config=[namespace:"app2",yaml:"k8s/app2.yaml"]
+                    def config=[namespace:"app3",yaml:"k8s/app3.yaml"]
                     deployApp(config)
               }
           }
