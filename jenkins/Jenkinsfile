@@ -5,13 +5,13 @@ pipeline {
 
         stage("deploy") {
             steps {
-                sh '''
-                  kubectl get namespace app3 || kubectl create namespace app3
-                  kubectl -n app3 apply -f k8s/app3.yaml
-                '''
-            }
-        }
-    }
+                script{
+                    def config=[namespace:"app2",yaml:"k8s/app2.yaml"]
+                    deployApp(config)
+              }
+          }
+     }
+ }
 
     post {
         success {
